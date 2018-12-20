@@ -7,6 +7,9 @@ target_link_libraries(test_led
 target_compile_features(test_led
     PUBLIC cxx_std_14
 )
+target_compile_options(test_led
+    PRIVATE "-Wall"
+)
 set_target_properties(test_led
     PROPERTIES
         CXX_STANDARD_REQUIRED ON
