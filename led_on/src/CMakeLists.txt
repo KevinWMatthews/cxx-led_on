@@ -1,6 +1,7 @@
 add_library(led
     "${CMAKE_HOME_DIRECTORY}/include/led.h"
     led.cpp
+    gpio.cpp
 )
 target_include_directories(led
     PUBLIC "${CMAKE_HOME_DIRECTORY}/include/"
@@ -10,6 +11,7 @@ target_compile_features(led
 )
 target_compile_options(led
     PRIVATE "-Wall"
+    PRIVATE "-Wpedantic"
 )
 set_target_properties(led
     PROPERTIES

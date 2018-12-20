@@ -9,6 +9,7 @@ target_compile_features(test_led
 )
 target_compile_options(test_led
     PRIVATE "-Wall"
+    PRIVATE "-Wpedantic"
 )
 set_target_properties(test_led
     PROPERTIES
