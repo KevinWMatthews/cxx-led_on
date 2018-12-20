@@ -27,3 +27,5 @@ if(COMPILE_UNIT_TESTS)
 
     add_subdirectory(tests)
 endif()
+
+add_subdirectory(src)
