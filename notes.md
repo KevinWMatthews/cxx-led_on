@@ -29,6 +29,12 @@ Capture individual test cases using the CMake module
 Specifically,
 [gtest_discover_tests](https://cmake.org/cmake/help/v3.13/module/GoogleTest.html#command:gtest_discover_tests).
 
+Set C++ standard:
+[blog post](https://crascit.com/2015/03/28/enabling-cxx11-in-cmake/)
+
+For libraries, it's perferable to set the standard per-taget:
+[gitlab book](https://cliutils.gitlab.io/modern-cmake/chapters/features/cpp11.html).
+
 
 ### Run
 

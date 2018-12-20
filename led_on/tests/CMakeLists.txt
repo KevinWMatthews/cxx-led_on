@@ -4,5 +4,14 @@ add_executable(test_led
 target_link_libraries(test_led
     PRIVATE gtest gtest_main
 )
+target_compile_features(test_led
+    PUBLIC cxx_std_14
+)
+set_target_properties(test_led
+    PROPERTIES
+        CXX_STANDARD_REQUIRED ON
+        CXX_EXTENSIONS OFF
+)
+
 include(GoogleTest)
 gtest_discover_tests(test_led)
