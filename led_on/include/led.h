@@ -7,6 +7,7 @@ class Led
 {
 public:
     Led(Gpio& gpio) : gpio_ {gpio} {};
+    ~Led();
     void TurnOn();
 private:
     Gpio& gpio_;
