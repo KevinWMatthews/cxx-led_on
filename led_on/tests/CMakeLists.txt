@@ -4,3 +4,5 @@ add_executable(test_led
 target_link_libraries(test_led
     PRIVATE gtest gtest_main
 )
+include(GoogleTest)
+gtest_discover_tests(test_led)
