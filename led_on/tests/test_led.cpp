@@ -5,6 +5,7 @@
 TEST(Led, LedOffAfterCreate)
 {
     auto gpio_spy = GpioSpy();
+    gpio_spy.Drive(Gpio::State::High);
     Led {gpio_spy};
     ASSERT_EQ(Gpio::State::Low, gpio_spy.ValueOf());
 }

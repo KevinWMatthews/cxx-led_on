@@ -6,7 +6,7 @@
 class Led
 {
 public:
-    Led(Gpio& gpio) : gpio_ {gpio} {};
+    Led(Gpio& gpio) : gpio_ {gpio} { gpio_.Drive(Gpio::State::Low); };
     void TurnOn();
 private:
     Gpio& gpio_;
