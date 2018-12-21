@@ -1,6 +1,7 @@
 add_library(led
     "${CMAKE_HOME_DIRECTORY}/include/led.h"
     led.cpp
+    "${CMAKE_HOME_DIRECTORY}/include/gpio.h"
     gpio.cpp
 )
 target_include_directories(led
