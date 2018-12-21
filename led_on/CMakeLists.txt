@@ -7,6 +7,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 
 option(COMPILE_UNIT_TESTS "Compile unit tests" OFF)
+option(CROSS_COMPILE_BBB "Cross-compile for the BeagleBone Black" OFF)
 
 if(COMPILE_UNIT_TESTS)
     enable_testing()
