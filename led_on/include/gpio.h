@@ -8,11 +8,8 @@ public:
     {
         Low, High,
     };
-    Gpio();
-    void Drive(State);
-    State ValueOf();
-private:
-    State state_;
+    virtual void Drive(State) = 0;
+    virtual State ValueOf() = 0;
 };
 
 #endif
