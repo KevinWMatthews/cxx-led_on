@@ -43,3 +43,7 @@ Run docker with:
 $ ENV_FILE=test.env ./docker_run.sh gtest
 container $ cmake ../led_on/ -DCOMPILE_UNIT_TESTS=ON
 ```
+
+### Cross-compile for BeagleBoneBlack
+
+[CMake wiki](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/CrossCompiling)

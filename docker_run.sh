@@ -56,9 +56,20 @@ container_name=${CONTAINER_NAME:?Must specify CONTAINER_NAME as an environment v
 userid=${USERID:=$(id --user)}
 groupid=${GROUPID:=$(id --group)}
 src_path_host=${SRC_PATH_HOST:?Must specify SRC_PATH_HOST as environment variable}
-build_path_host=${BUILD_PATH_HOST:?Must specify BUILD_PATH_HOST as environment variable}
 src_path_target=${SRC_PATH_TARGET:?Must specify SRC_PATH_TARGET as environment variable}
+build_path_host=${BUILD_PATH_HOST:?Must specify BUILD_PATH_HOST as environment variable}
 build_path_target=${BUILD_PATH_TARGET:?Must specify BUILD_PATH_TARGET as environment variable}
+
+# Set up cross-compilation toolchain, if needed
+toolchain_path_host=${TOOLCHAIN_PATH_HOST}
+if [ -n "${TOOLCHAIN_PATH_HOST}" ]; then
+    toolchain_path_target=${TOOLCHAIN_PATH_TARGET:?Must specify TOOLCHAIN_PATH_TARGET as environment variable}
+    toolchain_mount="--mount type=bind,src=${toolchain_path_host},dst=${toolchain_path_target}"
+
+    toolchain_file_path_host=${TOOLCHAIN_FILE_PATH_HOST:?Must specify TOOLCHAIN_FILE_PATH_HOST as environment variable}
+    toolchain_file_path_target=${TOOLCHAIN_FILE_PATH_TARGET:?Must specify TOOLCHAIN_FILE_PATH_TARGET as environment variable}
+    toolchain_file_mount="--mount type=bind,src=${toolchain_file_path_host},dst=${toolchain_file_path_target}"
+fi
 
 command="docker run
     --rm --name ${container_name}
@@ -66,6 +77,8 @@ command="docker run
     --user ${userid}:${groupid}
     --mount type=bind,src=${src_path_host},dst=${src_path_target}
     --mount type=bind,src=${build_path_host},dst=${build_path_target}
+    ${toolchain_file_mount}
+    ${toolchain_mount}
     --workdir ${build_path_target}
     $@"
 

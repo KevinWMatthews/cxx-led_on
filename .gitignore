@@ -1,1 +1,5 @@
+# Ignore system-specific .env files
 *.env
+
+# Ignore system-specific CMake toolchain files
+Toolchain-*.cmake
