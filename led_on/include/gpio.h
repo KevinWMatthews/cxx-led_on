@@ -4,7 +4,7 @@
 class Gpio
 {
 public:
-    enum State
+    enum class State
     {
         Low, High,
     };
