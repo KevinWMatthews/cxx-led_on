@@ -19,5 +19,5 @@ set_target_properties(test_led
         CXX_EXTENSIONS OFF
 )
 
-include(GoogleTest)
-gtest_discover_tests(test_led)
+# include(GoogleTest)
+# gtest_discover_tests(test_led)
